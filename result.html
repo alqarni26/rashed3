@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>النتيجة</title>
+    <style>
+body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(to right, #08a129, #97f0aa);
+            color: rgb(34, 30, 30);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .container {
+            background-color: rgba(255, 255, 255, 0.1);
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.3);
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 2.5em;
+            margin-bottom: 20px;
+        }
+
+        p {
+            font-size: 1.5em;
+            margin: 10px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <img src="html.png" width="200" height="200">
+        <h1>شكرا لك على إتمامك الاختبار</h1>
+        <p id="student-name"></p>
+        <p id="student-grade"></p>
+        <p id="student-result"></p>
+
+<br><br>
+        <h3>واصل التفوق والنجاح دائماً</h3>
+        <h3>  مع تحيات الاستاذ : راشد القرني &copy; </h3>
+    </div>
+ 
+
+    <script>
+        // استرجاع بيانات الطالب من الرابط
+        const params = new URLSearchParams(window.location.search);
+        const studentName = params.get('studentName');
+        const grade = params.get('grade');
+        
+        // حساب النتيجة (تقديرية على سبيل المثال)
+        let score = 0;
+        if (params.get('q1') === 'HTML') score += 1;
+        if (params.get('q2') === '<h1>') score += 1;
+        if (params.get('q3') === '<img>') score += 1;
+        if (params.get('q4') === '<p>') score += 1;
+        if (params.get('q5') === '<hr>') score += 1;
+        if (params.get('q6') === 'src') score += 1;
+        if (params.get('q7') === '<DOCTYPE html>') score += 1;
+        if (params.get('q8') === 'النشر') score += 1; 
+        if (params.get('q9') === 'إدراج فيديو') score += 1; 
+        if (params.get('q10') === 'تصميم الموقع باحدى لغات البرمجة') score += 1;    
+        // عرض النتائج
+        document.getElementById('student-name').textContent = `اسم الطالب: ${studentName}`;
+        document.getElementById('student-grade').textContent = `الصف:عاشر/ ${grade}`;
+        document.getElementById('student-result').textContent = `نتيجتك هي: ${score} من 10`;
+    </script>
+</body>
+</html>

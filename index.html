@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>الصفحة الترحيبية</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(to right, #08a129, #97f0aa);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            color: rgb(29, 27, 27);
+            text-align: center;
+        }
+
+        .container {
+            background-color: rgba(255, 255, 255, 0.1);
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        h1 {
+            font-size: 2.5em;
+            margin-bottom: 20px;
+        }
+
+        h2 {
+            font-size: 1.5em;
+            margin: 10px 0;
+        }
+
+        img {
+            max-width: 150px; /* تعديل حجم الشعار */
+            margin-bottom: 5px; /* إضافة مسافة بين الشعار واسم المدرسة */
+        }
+
+        label, select, input {
+            display: block;
+            margin: 10px auto;
+            width: 80%;
+            padding: 10px;
+            border-radius: 5px;
+            font-size: 1em;
+        }
+
+        button {
+            background-color: #e63946;
+            color: white;
+            padding: 12px 25px;
+            font-size: 1.2em;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #d62839;
+        }
+
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <img src="moe.png" alt="شعار المدرسة" /> <!-- تأكد من تعديل مسار الصورة -->
+        <h2>سلطنة عمان <br>وزارة التربية والتعليم <br>المديرية العامة للتربية والتعليم بمحافظة الباطنة شمال <br>مدرسة الصبيخي للتعليم الأساسي(5-10)</h2>
+        <h1>مرحباً بك في الاختبار الإلكتروني</h1>
+        
+        <form id="start-form"> <!-- تأكد من إضافة النموذج -->
+            <label for="student-name">اسم الطالب</label>
+            <input type="text" id="student-name" name="studentName" required placeholder="أدخل اسمك">
+
+            <label for="grade">الصف</label>
+            <select id="grade" name="grade" required>
+                <option value="" disabled selected>اختر الصف</option>
+                <option value="1">الصف عاشر أول</option>
+                <option value="2">الصف عاشر ثاني</option>
+                <option value="3">الصف عاشر ثالث</option>
+                <option value="4">الصف عاشر رابع</option>
+            </select>
+
+            <button type="submit">ابدأ الامتحان</button>
+        </form>
+    </div>
+
+   
+       
+    </footer>
+    
+
+    <script>
+        document.getElementById('start-form').addEventListener('submit', function(event) {
+            event.preventDefault(); // منع إعادة تحميل الصفحة
+            const studentName = document.getElementById('student-name').value;
+            const grade = document.getElementById('grade').value;
+            // الانتقال إلى صفحة الأسئلة مع إرسال البيانات
+            window.location.href = `questions.html?studentName=${encodeURIComponent(studentName)}&grade=${encodeURIComponent(grade)}`;
+        });
+    </script>
+</body>
+</html>

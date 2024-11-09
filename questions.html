@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>الأسئلة</title>
+    <style>
+body {
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(to right,#08a129, #97f0aa);
+    color: rgb(29, 22, 22);
+    display: flex;
+    justify-content: center;
+    margin: 0;
+    padding: 20px; /* أضف بعض المسافة حول الصفحة */
+    min-height: 100vh; /* استخدم min-height للسماح بالتكيف مع المحتوى */
+    box-sizing: border-box; /* يضمن أن padding والمحتوى يظل ضمن الحدود */
+}
+
+
+        .container {
+            background-color: rgba(255, 255, 255, 0.1);
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.3);
+            width: 100%;
+            max-width: 600px;
+            animation: fadeIn 1s ease-in-out;
+        }
+
+        h1 {
+            font-size: 2.5em;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .student-info {
+            background-color: rgba(255, 255, 255, 0.2);
+            padding: 15px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .student-info p {
+            font-size: 1.5em;
+            margin: 10px 0;
+        }
+
+        .question {
+            background-color: rgba(255, 255, 255, 0.2);
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        label {
+            font-size: 1.2em;
+            color: rgb(22, 16, 16);
+        }
+
+        .question div {
+            margin-bottom: 10px;
+        }
+
+        button {
+            display: block;
+            width: 100%;
+            padding: 15px;
+            background-color: #ff6f61;
+            color: white;
+            border: none;
+            border-radius: 30px;
+            font-size: 1.2em;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #ff4757;
+            transform: scale(1.05);
+        }
+
+        #timer {
+            font-size: 1.2em;
+            text-align: center;
+            margin-bottom: 20px;
+            color: yellow;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>أختر الاجابة الصحيحة من بين البدائل</h1>
+        
+        <!-- عرض معلومات الطالب -->
+        <div class="student-info" id="student-info">
+            <p id="student-name"></p>
+            <p id="student-grade"></p>
+        </div>
+
+        <!-- المؤقت -->
+        <div id="timer">الوقت المتبقي: 10:00</div>
+
+        <form id="quiz-form" action="result.html" method="GET">
+            <div class="question">
+                <label>السؤال 1: ما هي اللغة المستخدمة لتصميم صفحات الويب؟</label><br><br>
+                <div><input type="radio" name="q1" value=" Python " required> Python  </div>
+                <div><input type="radio" name="q1" value="JavaScript "> JavaScript  </div>
+                <div><input type="radio" name="q1" value="CSS "> CSS </div>
+                <div><input type="radio" name="q1" value="HTML">  HTML </div>
+            </div>
+
+            <div class="question">
+                <label>السؤال 2: أي من العناصر التالية يستخدم لإنشاء عنوان رئيسي في صفحة الويب؟</label><br><br>
+                <div><input type="radio" name="q2" value="&lt;p&gt;" required> &lt;p&gt;</div>
+                <div><input type="radio" name="q2" value="&lt;h1&gt;"> &lt;h1&gt;</div>
+                <div><input type="radio" name="q2" value="&lt;title&gt;"> &lt;title&gt;</div>
+                <div><input type="radio" name="q2" value="&lt;body&gt;"> &lt;body&gt;</div>
+            </div>
+
+            <div class="question">
+                <label>السؤال 3: أي من التالي يُستخدم لادراج صورة في HTML؟</label><br><br>
+                <div><input type="radio" name="q3" value="&lt;pic&gt;" required> &lt;pic&gt;</div>
+                <div><input type="radio" name="q3" value="&lt;img&gt;"> &lt;img&gt;</div>
+                <div><input type="radio" name="q3" value="&lt;link&gt;"> &lt;link&gt;</div>
+                <div><input type="radio" name="q3" value="&lt;page&gt;"> &lt;page&gt;</div>
+            </div>
+
+            <div class="question">
+                <label>السؤال 4:  أي من التالي هو عنصر  HTML لإنشاء فقرة ؟</label><br><br>
+                <div><input type="radio" name="q4" value="&lt;text&gt;" required> &lt;text&gt;</div>
+                <div><input type="radio" name="q4" value="&lt;pg&gt;"> &lt;pg&gt;</div>
+                <div><input type="radio" name="q4" value="&lt;p&gt;"> &lt;p&gt;</div>
+                <div><input type="radio" name="q4" value="&lt;footer&gt;"> &lt;footer&gt;</div>
+            </div>
+
+            <div class="question">
+                <label>السؤال 5:ما هو العنصر المستخدم لإنشاء خط أفقي في HTML؟</label><br><br>
+                <div><input type="radio" name="q5" value="&lt;div&gt;" required> &lt;div&gt;</div>
+                <div><input type="radio" name="q5" value="&lt;pr&gt;"> &lt;pr&gt;</div>
+                <div><input type="radio" name="q5" value="&lt;line&gt;"> &lt;line&gt;</div>
+                <div><input type="radio" name="q5" value="&lt;hr&gt;"> &lt;hr&gt;</div>
+            </div>
+
+            <div class="question">
+                <label>السؤال 6: ما هي السمة التي يجب تضمينها عند إدراج صورة في HTML؟  </label><br><br>
+                <div><input type="radio" name="q6" value="src" required> src</div>
+                <div><input type="radio" name="q6" value="herf"> herf</div>
+                <div><input type="radio" name="q6" value="color"> color</div>
+                <div><input type="radio" name="q6" value="align"> align</div>
+            </div>
+
+
+            <div class="question">
+                <label>السؤال 7: أي من الخيارات النالية يستخدم لتحديد إصدار html في المستند  الويب</label><br><br>
+                <div><input type="radio" name="q7" value="&lt;DOCTYPE html&gt;" required> &lt;DOCTYPE html&gt;</div>
+                <div><input type="radio" name="q7" value="&lt;html&gt;"> &lt;html&gt;</div>
+                <div><input type="radio" name="q7" value="&lt;version&gt;"> version&gt;</div>
+                <div><input type="radio" name="q7" value="&lt;meta&gt;"> &lt;meta&gt;</div>
+            </div>
+
+            <div class="question">
+                <label>السؤال 8: في أي مرحلة يتم رفع الموقع إلى خادم الويب ليصبح متاحًا للمستخدمين ؟  </label><br><br>
+                <div><input type="radio" name="q8" value="النشر" required> النشر</div>
+                <div><input type="radio" name="q8" value="التخطيط"> التخطيط</div>
+                <div><input type="radio" name="q8" value="التنفيذ"> التنفيذ</div>
+                <div><input type="radio" name="q8" value="التصميم"> التصميم</div>
+            </div>
+
+            <div class="question">
+                <label>السؤال 9: ماهي الوظيفة الرئيسية للوسم &lt;video&gt; في لغة html ؟   </label><br><br>
+                <div><input type="radio" name="q9" value="إنشاء رابط" required> إنشاء رابط</div>
+                <div><input type="radio" name="q9" value="إدراج فيديو"> إدراج فيديو</div>
+                <div><input type="radio" name="q9" value="إنشاء فقرة"> إنشاء فقرة</div>
+                <div><input type="radio" name="q9" value="تحديد عنوان"> تحديد عنوان</div>
+            </div>
+
+            <div class="question">
+                <label>السؤال 10: ماهي مرحلة التنفيذ ؟   </label><br><br>
+                <div><input type="radio" name="q10" value="تصميم الموقع باحدى لغات البرمجة" required>   تصميم الموقع باحدى لغات البرمجة</div>
+                <div><input type="radio" name="q10" value="تحديد الهدف العام من إنشاء الموقع"> تحديد الهدف من إنشاء الموقع</div>
+                <div><input type="radio" name="q10" value="رفع الموقع على خادم الويب"> رفع الموقع على خادم الويب</div>
+                <div><input type="radio" name="q10" value="التخطيط لهيكل الموقع"> التخطيط لهيكل الموقع</div>
+            </div>
+
+            <button type="submit">إرسال الإجابات</button>
+
+            <input type="hidden" name="studentName" id="studentName">
+            <input type="hidden" name="grade" id="grade">
+        </form>
+    </div>
+
+    <script>
+        // استرجاع اسم الطالب والصف من الرابط
+        const params = new URLSearchParams(window.location.search);
+        document.getElementById('studentName').value = params.get('studentName');
+        document.getElementById('grade').value = params.get('grade');
+
+        // عرض معلومات الطالب في أعلى الصفحة
+        document.getElementById('student-name').textContent = `مرحبا بك : ${params.get('studentName')}`;
+        document.getElementById('student-grade').textContent = `الصف:عاشر / ${params.get('grade')}`;
+
+        // إعداد المؤقت لمدة 10 دقائق (600 ثانية)
+        let timeLeft = 600;
+        const timerElement = document.getElementById('timer');
+        const quizForm = document.getElementById('quiz-form');
+
+        function updateTimer() {
+            const minutes = Math.floor(timeLeft / 60);
+            const seconds = timeLeft % 60;
+            timerElement.textContent = `الوقت المتبقي: ${minutes}:${seconds < 10 ? '0' : ''}${seconds}`;
+
+            // عند انتهاء الوقت يتم إرسال النموذج تلقائيًا
+            if (timeLeft <= 0) {
+                clearInterval(timerInterval);
+                quizForm.submit();
+            }
+
+            timeLeft--;
+        }
+
+        const timerInterval = setInterval(updateTimer, 1000); // تحديث المؤقت كل ثانية
+
+        // إيقاف المؤقت وإرسال الإجابات عند انتهاء الوقت
+        quizForm.addEventListener('submit', function(event) {
+            clearInterval(timerInterval); // إيقاف المؤقت عند إرسال الإجابات
+        });
+    </script>
+</body>
+</html>
